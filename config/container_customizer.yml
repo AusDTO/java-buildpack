@@ -1,4 +1,3 @@
-# Encoding: utf-8
 # Cloud Foundry Java Buildpack
 # Copyright 2013-2016 the original author or authors.
 #
@@ -14,28 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'java_buildpack/buildpack_version'
-
-module Package
-
-  def self.offline
-    '-offline' if BUILDPACK_VERSION.offline
-  end
-
-  def self.version
-    BUILDPACK_VERSION.version || 'unknown'
-  end
-
-  ARCHITECTURES = %w(x86_64).freeze
-
-  BUILD_DIR = 'build'.freeze
-
-  BUILDPACK_VERSION = JavaBuildpack::BuildpackVersion.new(false).freeze
-
-  PLATFORMS = %w(mountainlion trusty).freeze
-
-  STAGING_DIR = "#{BUILD_DIR}/staging".freeze
-
-  PACKAGE_NAME = "#{BUILD_DIR}/java-buildpack#{offline}-#{version}.zip".freeze
-
-end
+# Configuration for the Container Customizer framework
+---
+version: 1.+
+repository_root: "{default.repository.root}/container-customizer"
